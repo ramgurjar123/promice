@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+
+        .id{   display:flex;
+    flex-wrap: wrap;
+    background: linear-gradient(to right, #ee9ca7, #ffdde1);
+    padding: 4rem;}
+           
+        
+        
+
+    </style>
+
+    <div class="id">
+
+
+    </div>
+
+    <script>
+
+        fetch("https://dummyjson.com/products")
+            .then((response) => { return response.json() })
+            .then((result) => {
+                console.log(result.products);
+                diplayhome(result.products);
+            })
+
+
+        function diplayhome(data) {
+            for(let i = 0; i< data.length ; i++){
+                let image = document.createElement("img")
+                image.src = data[i].images[0]
+                document.querySelector(".id").append(image)
+
+
+
+
+
+
+                const brand = document.createElement("h1")
+                brand.innerHTML = data[i].brand
+                document.querySelector(".id").append(brand)
+
+
+                
+                const stock = document.createElement("h1")
+                stock.innerHTML = data[i].stock
+                document.querySelector(".id").append(stock)
+
+
+
+                const description = document.createElement("h3")
+                description.innerHTML = data[i].description
+                document.querySelector(".id").append(description)
+
+
+                
+
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+            }
+          
+        }
+
+
+    </script>
+
+</body>
+
+</html>
